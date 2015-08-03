@@ -14,6 +14,8 @@ img {
         margin: auto;
         text-align: center;
         width:100%;
+        background-image: linear-gradient(120deg, #155799, #159957);
+        height: 8em ;
 }
 #mid_div {
         text-align: center;
@@ -46,7 +48,8 @@ img {
         color:#fff;
         text-align:center;
         text-decoration:none;
-        margin: 15px
+        margin-right: 15px;
+        margin-left: 15px
 }
 
 #wtf:hover{
@@ -66,7 +69,8 @@ img {
         text-align:center;
         text-decoration:none;
         background:#8DA552;
-        margin: 15px
+        margin-right: 15px;
+        margin-left: 15px
 }
 
 #download:hover{
@@ -84,7 +88,8 @@ img {
         font-size:20px;
         color:#fff;
         text-align:center;
-        margin: 15px
+        margin-right: 15px;
+        margin-left: 15px
 }
 
 #reload:hover{
@@ -103,7 +108,8 @@ img {
         color:#fff;
         text-align:center;
         text-decoration:none;
-        margin: 15px
+        margin-right: 15px;
+        margin-left: 15px
 }
 
 #print_it:hover{

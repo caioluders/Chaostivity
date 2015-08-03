@@ -112,20 +112,23 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, ra
 var canvas = document.getElementById("title_background");
 var c = canvas.getContext("2d");
 
-c.fillStyle = "#8DA552";
-c.roundRect(0, 0, 250, 100, {lowerLeft:10,lowerRight:10}, true, false);
+// var grd=c.createLinearGradient(0,0,250,0);
+// grd.addColorStop(0,"#155799");
+// grd.addColorStop(1,"#159957");
+// c.fillStyle = grd;
+// c.roundRect(0, 0, 250, 100, {lowerLeft:10,lowerRight:10}, true, false);
 
-for ( var i = 1 ; i < 100 ; i+= 1 ) {
-	c.shadowOffsetX = 50+i;
-	c.shadowOffsetY = 80+i;
-	c.shadowColor = "#718147" ;
-	c.fillStyle = undefined ;
-	c.font = "30px ChunkFive-Roman";
-	c.fillText("Chaostivity", -10, -10);
-}
+// for ( var i = 1 ; i < 100 ; i+= 1 ) {
+// 	c.shadowOffsetX = 40+i;
+// 	c.shadowOffsetY = 80+i;
+// 	c.shadowColor = "#718147" ;
+// 	c.fillStyle = undefined ;
+// 	c.font = "35px ChunkFive-Roman";
+// 	c.fillText("Chaostivity", -10, -10);
+// }
 c.fillStyle = "#FFF6E4";
-c.font = "30px ChunkFive-Roman";
-c.fillText("Chaostivity", 40, 70);
+c.font = "35px ChunkFive-Roman";
+c.fillText("Chaostivity", 30, 70);
 
 
 var canvas1 = document.getElementById('wtf');
