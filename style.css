@@ -1,23 +1,48 @@
+@font-face { font-family: 'ChunkFive-Roman'; src: url('/static/fonts/ChunkFive-Roman.eot?#iefix') format('embedded-opentype'), url('/static/fonts/ChunkFive-Roman.otf') format('opentype'), url('/static/fonts/ChunkFive-Roman.woff') format('woff'), url('/static/fonts/ChunkFive-Roman.ttf') format('truetype'), url('/static/fonts/ChunkFive-Roman.svg#ChunkFive-Roman') format('svg'); font-weight: normal; font-style: normal; }
+
+html, body {
+                height: 100%;
+                margin: 0;
+}
+
+#wrapper {
+                min-height: 100%; 
+}
+
+#top_div {
+        text-align: center;
+        width:100%;
+}
+#mid_div {
+        text-align: center;
+        width:100%;       
+}
+#foot_div {
+        text-align: center;
+        width: 100%;
+}
 #title_div{
         display:inline-block;
 }
 
 #title_background {
         position: relative;
+        margin: 0 auto
 }
 
 #wtf{
         display:inline-block;
-        width:100px;
-        height:100px;
+        width:50px;
+        height:50px;
         border-radius:50px;
         font-size:20px;
         color:#fff;
         line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#000
-        }
+        background:#8DA552;
+        margin: 0 auto
+}
 
 #wtf:hover{
         color:#ccc;
@@ -27,16 +52,17 @@
 
 #download{
         display:inline-block;
-        width:100px;
-        height:100px;
+        width:50px;
+        height:50px;
         border-radius:50px;
         font-size:20px;
         color:#fff;
         line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#000
-        }
+        background:#8DA552;
+        margin: 0 auto
+}
 
 #download:hover{
         color:#ccc;
@@ -46,16 +72,17 @@
 
 #reload{
         display:inline-block;
-        width:100px;
-        height:100px;
+        width:50px;
+        height:50px;
         border-radius:50px;
         font-size:20px;
         color:#fff;
         line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#000
-        }
+        background:#8DA552;
+        margin: 0 auto
+}
 
 #reload:hover{
         color:#ccc;
@@ -65,16 +92,17 @@
 
 #print_it{
         display:inline-block;
-        width:100px;
-        height:100px;
+        width:50px;
+        height:50px;
         border-radius:50px;
         font-size:20px;
         color:#fff;
         line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#000
-        }
+        background:#8DA552;
+        margin: 0 auto
+}
 
 #print_it:hover{
         color:#ccc;
@@ -83,16 +111,17 @@
 }
 #print_type{
         display:inline-block;
-        width:100px;
-        height:100px;
+        width:30px;
+        height:30px;
         border-radius:50px;
         font-size:20px;
         color:#fff;
         line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#000
-        }
+        background:#8DA552;
+        margin: 0 auto
+}
 
 #print_type:hover{
         color:#ccc;
