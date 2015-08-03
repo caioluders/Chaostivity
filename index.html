@@ -2,6 +2,8 @@
 <html>
 <body>
 
+<a id="download">Download</a>
+<button onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)">Reload</button>
 <input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
 <input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
 <canvas id="pareidolia" width="400" height="200" style="border:1px solid #d3d3d3;">
@@ -12,22 +14,38 @@ function draw( d , o ) {
 	var c = document.getElementById("pareidolia");
 	var ctx = c.getContext("2d");
 	ctx.clearRect(0, 0, c.width, c.height);
-	
+	ctx.save()
+	ctx.globalAlpha = parseInt(o)/100
+	console.log(parseInt(o)/100)
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
-		ctx.globalAlpha = o/100
-		ctx.moveTo( Math.floor((Math.random() * 1239)) ,Math.floor((Math.random() * 1754)));
-		ctx.lineTo(Math.floor((Math.random() * 1239)),Math.floor((Math.random() * 1754)));
+		ctx.beginPath();
+		ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
+		ctx.lineTo(Math.floor((Math.random() * 400)),Math.floor((Math.random() * 200)));
+		ctx.lineWidth = 0.5;
+		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
 	}
 
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
 		ctx.beginPath();
-		ctx.globalAlpha = o/100
 		ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
-	      ctx.bezierCurveTo(Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)));
+		ctx.bezierCurveTo(Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)));
+		ctx.lineWidth = 0.5;
+		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
 	}
+
+	ctx.restore()
 }
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
+}
+
+document.getElementById('download').addEventListener('click', function() {
+    downloadCanvas(this, 'pareidolia', 'pareidolia.png');
+}, false);
 
 draw(50) ;
 
