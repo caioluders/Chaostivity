@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
+<img src="static/images/PrintButton.png" id="print_btn">
+<img src="static/images/SaveButton.png" id="save_btn">
+<img src="static/images/HelpButton.png" id="help_btn">
+<img src="static/images/ReloadButton.png" id="reload_btn">
 <link type="text/css" rel="stylesheet" href="style.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <body>
-<div id="wrapper">
-	<div id="top_div">
-		<a onclick="wtf()" id="wtf">?</a>
-		<a id="reload" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)">Reload</a>
-		<div id="title_div">
-			<canvas id="title_background" width="200" height="100">	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
-		</div>
-		<a id="download">Download</a>
-		<a onclick="window.print()" id="print_it">Print it!</a>
-	</div>
-	<div id="mid_div">
-		<canvas id="pareidolia" width="400" height="200" >	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
-	</div>
-	<div id="foot_div">
-		<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
-		<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
-		<a id="print_type" onclick="select_print('a3')">A3</a>
-		<a id="print_type" onclick="select_print('a4')">A4</a>
-	</div>
+<div id="top_div">
+	<canvas id="wtf" onclick="wtf()" width="80" height="80" ></canvas>
+	<canvas id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></canvas>
+	<canvas id="title_background" width="250" height="100">	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
+	<canvas id="download" width="80" height="80"></canvas>
+	<canvas onclick="window.print()" width="80" height="80" id="print_it"></canvas>
+</div>
+<div id="mid_div">
+	<canvas id="pareidolia" width="600" height="400" >	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
+</div>
+<div id="foot_div">
+	Densidade<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
+	Opacidade<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
+	<button id="print_type" onclick="select_print('a3')">A3</button>
+	<button id="print_type" onclick="select_print('a4')">A4</button>
 </div>
 
 <script>
@@ -31,11 +32,11 @@ function draw( d , o ) {
 	ctx.clearRect(0, 0, c.width, c.height);
 	ctx.save()
 	ctx.globalAlpha = parseInt(o)/100
-	console.log(parseInt(o)/100)
+	
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
 		ctx.beginPath();
-		ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
-		ctx.lineTo(Math.floor((Math.random() * 400)),Math.floor((Math.random() * 200)));
+		ctx.moveTo( Math.floor((Math.random() * 600)) ,Math.floor((Math.random() * 400)));
+		ctx.lineTo(Math.floor((Math.random() * 600)),Math.floor((Math.random() * 400)));
 		ctx.lineWidth = 0.5;
 		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
@@ -43,8 +44,8 @@ function draw( d , o ) {
 
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
 		ctx.beginPath();
-		ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
-		ctx.bezierCurveTo(Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)));
+		ctx.moveTo( Math.floor((Math.random() * 600)) ,Math.floor((Math.random() * 400)));
+		ctx.bezierCurveTo(Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)));
 		ctx.lineWidth = 0.5;
 		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
@@ -102,11 +103,121 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, ra
 
 var canvas = document.getElementById("title_background");
 var c = canvas.getContext("2d");
+
 c.fillStyle = "#8DA552";
-c.roundRect(0, 0, 200, 100, {lowerLeft:30,lowerRight:30}, true, true);
-c.fillStyle = "white";
-c.font = "bold 25px Arial";
-c.fillText("Chaostivity", 50, 50);
+c.roundRect(0, 0, 250, 100, {lowerLeft:10,lowerRight:10}, true, false);
+
+// c.fillStyle = "#718147";
+// c.rotate(45*Math.PI/180);
+// c.fillRect(80,-45,60,150);
+// c.rotate(-45*Math.PI/180);
+
+
+
+for ( var i = 1 ; i < 100 ; i+= 1 ) {
+	c.shadowOffsetX = 50+i;
+	c.shadowOffsetY = 80+i;
+	c.shadowColor = "#718147" ;
+	c.fillStyle = undefined ;
+	c.font = "30px ChunkFive-Roman";
+	c.fillText("Chaostivity", -10, -10);
+}
+c.fillStyle = "#FFF6E4";
+c.font = "30px ChunkFive-Roman";
+c.fillText("Chaostivity", 40, 70);
+
+var canvas1 = document.getElementById('wtf');
+var context = canvas1.getContext('2d');
+var centerX = canvas1.width / 2;
+var centerY = canvas1.height / 2;
+var radius = 70;
+
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+context.fillStyle = '#8DA552';
+context.fill();
+var img = document.getElementById("help_btn");
+
+
+
+for ( var i = 1 ; i < 100 ; i+= 1 ) {
+	context.shadowOffsetX = ((80-45)/2)+31+i;
+	context.shadowOffsetY = ((80-44)/2)+31+i;
+	context.shadowColor = "#718147" ;
+	context.fillStyle = undefined ;
+	context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
+}
+context.drawImage(img, (80-45)/2, (80-44)/2);
+
+var canvas2 = document.getElementById('reload');
+var context = canvas2.getContext('2d');
+var centerX = canvas2.width / 2;
+var centerY = canvas2.height / 2;
+var radius = 70;
+
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+context.fillStyle = '#8DA552';
+context.fill();
+var img = document.getElementById("reload_btn");
+
+for ( var i = 1 ; i < 100 ; i+= 1 ) {
+	context.shadowOffsetX = ((80-45)/2)+31+i;
+	context.shadowOffsetY = ((80-44)/2)+31+i;
+	context.shadowColor = "#718147" ;
+	context.fillStyle = undefined ;
+	context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
+}
+
+context.drawImage(img, (80-45)/2, (80-44)/2);
+
+
+var canvas3 = document.getElementById('download');
+var context = canvas3.getContext('2d');
+var centerX = canvas3.width / 2;
+var centerY = canvas3.height / 2;
+var radius = 70;
+
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+context.fillStyle = '#8DA552';
+context.fill();
+
+var imageObj3 = new Image();
+var img = document.getElementById("save_btn");
+
+
+for ( var i = 1 ; i < 100 ; i+= 1 ) {
+	context.shadowOffsetX = ((80-45)/2)+31+i;
+	context.shadowOffsetY = ((80-44)/2)+31+i;
+	context.shadowColor = "#718147" ;
+	context.fillStyle = undefined ;
+	context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
+}
+
+context.drawImage(img, (80-45)/2, (80-44)/2);
+
+var canvas4 = document.getElementById('print_it');
+var context = canvas4.getContext('2d');
+var centerX = canvas4.width / 2;
+var centerY = canvas4.height / 2;
+var radius = 70;
+
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+context.fillStyle = '#8DA552';
+context.fill();
+var img = document.getElementById("print_btn");
+
+for ( var i = 1 ; i < 100 ; i+= 1 ) {
+	context.shadowOffsetX = ((80-45)/2)+30+i;
+	context.shadowOffsetY = ((80-44)/2)+30.5+i;
+	context.shadowColor = "#718147" ;
+	context.fillStyle = undefined ;
+	context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
+}
+
+context.drawImage(img, (80-45)/2, (80-44)/2);
 
 draw(50) ;
 

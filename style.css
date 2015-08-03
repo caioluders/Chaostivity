@@ -1,20 +1,23 @@
-@font-face { font-family: 'ChunkFive-Roman'; src: url('/static/fonts/ChunkFive-Roman.eot?#iefix') format('embedded-opentype'), url('/static/fonts/ChunkFive-Roman.otf') format('opentype'), url('/static/fonts/ChunkFive-Roman.woff') format('woff'), url('/static/fonts/ChunkFive-Roman.ttf') format('truetype'), url('/static/fonts/ChunkFive-Roman.svg#ChunkFive-Roman') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ChunkFive-Roman'; src: url('static/fonts/ChunkFive-Roman.eot?#iefix') format('embedded-opentype'), url('static/fonts/ChunkFive-Roman.otf') format('opentype'), url('static/fonts/ChunkFive-Roman.woff') format('woff'), url('static/fonts/ChunkFive-Roman.ttf') format('truetype'), url('static/fonts/ChunkFive-Roman.svg#ChunkFive-Roman') format('svg'); font-weight: normal; font-style: normal; }
 
 html, body {
                 height: 100%;
                 margin: 0;
 }
 
-#wrapper {
-                min-height: 100%; 
+img {
+    display: none;
+    margin: 0 auto;
 }
 
 #top_div {
+        margin: auto;
         text-align: center;
         width:100%;
 }
 #mid_div {
         text-align: center;
+        direction: block;
         width:100%;       
 }
 #foot_div {
@@ -26,22 +29,24 @@ html, body {
 }
 
 #title_background {
-        position: relative;
         margin: 0 auto
+}
+
+#pareidolia {
+        padding: 1px;
 }
 
 #wtf{
         display:inline-block;
-        width:50px;
-        height:50px;
+        width:80px;
+        height:80px;
+        border: 0px;
         border-radius:50px;
-        font-size:20px;
+        font-size:40px;
         color:#fff;
-        line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#8DA552;
-        margin: 0 auto
+        margin: 15px
 }
 
 #wtf:hover{
@@ -52,16 +57,16 @@ html, body {
 
 #download{
         display:inline-block;
-        width:50px;
-        height:50px;
+        width:80px;
+        height:80px;
         border-radius:50px;
+        border: 0px;
         font-size:20px;
         color:#fff;
-        line-height:100px;
         text-align:center;
         text-decoration:none;
         background:#8DA552;
-        margin: 0 auto
+        margin: 15px
 }
 
 #download:hover{
@@ -72,16 +77,14 @@ html, body {
 
 #reload{
         display:inline-block;
-        width:50px;
-        height:50px;
+        width:80px;
+        height:80px;
         border-radius:50px;
+        border: 0px;
         font-size:20px;
         color:#fff;
-        line-height:100px;
         text-align:center;
-        text-decoration:none;
-        background:#8DA552;
-        margin: 0 auto
+        margin: 15px
 }
 
 #reload:hover{
@@ -92,16 +95,15 @@ html, body {
 
 #print_it{
         display:inline-block;
-        width:50px;
-        height:50px;
+        width:80px;
+        height:80px;
         border-radius:50px;
+        border: 0px;
         font-size:20px;
         color:#fff;
-        line-height:100px;
         text-align:center;
         text-decoration:none;
-        background:#8DA552;
-        margin: 0 auto
+        margin: 15px
 }
 
 #print_it:hover{
@@ -113,10 +115,10 @@ html, body {
         display:inline-block;
         width:30px;
         height:30px;
+        border: 0px;
         border-radius:50px;
-        font-size:20px;
+        font-size:15px;
         color:#fff;
-        line-height:100px;
         text-align:center;
         text-decoration:none;
         background:#8DA552;
