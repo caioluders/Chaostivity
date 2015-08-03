@@ -2,28 +2,34 @@
 <html>
 <body>
 
+<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
+<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
 <canvas id="pareidolia" width="400" height="200" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
-var c = document.getElementById("pareidolia");
-
-for (var i = 0 ; i < 50 ; i++ ) {
+function draw( d , o ) {
+	var c = document.getElementById("pareidolia");
 	var ctx = c.getContext("2d");
-	ctx.strokeStyle = "#bebebe";
-	ctx.moveTo( Math.floor((Math.random() * 1239)) ,Math.floor((Math.random() * 1754)));
-	ctx.lineTo(Math.floor((Math.random() * 1239)),Math.floor((Math.random() * 1754)));
-	ctx.stroke();
+	ctx.clearRect(0, 0, c.width, c.height);
+	
+	for (var i = 0 ; i < parseInt(d) ; i++ ) {
+		ctx.globalAlpha = o/100
+		ctx.moveTo( Math.floor((Math.random() * 1239)) ,Math.floor((Math.random() * 1754)));
+		ctx.lineTo(Math.floor((Math.random() * 1239)),Math.floor((Math.random() * 1754)));
+		ctx.stroke();
+	}
+
+	for (var i = 0 ; i < parseInt(d) ; i++ ) {
+		ctx.beginPath();
+		ctx.globalAlpha = o/100
+		ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
+	      ctx.bezierCurveTo(Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)));
+		ctx.stroke();
+	}
 }
 
-for (var i = 0 ; i < 50 ; i++ ) {
-	var ctx = c.getContext("2d");
-	ctx.strokeStyle = "#bebebe";
-	ctx.beginPath();
-	ctx.moveTo( Math.floor((Math.random() * 400)) ,Math.floor((Math.random() * 200)));
-      ctx.bezierCurveTo(Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 200)));
-	ctx.stroke();
-}
+draw(50) ;
 
 </script>
 
