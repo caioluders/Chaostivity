@@ -4,7 +4,7 @@
 <img src="static/images/SaveButton.png" id="save_btn">
 <img src="static/images/HelpButton.png" id="help_btn">
 <img src="static/images/ReloadButton.png" id="reload_btn">
-<link type="text/css" rel="stylesheet" href="static/styles/style.css" />
+<link type="text/css" rel="stylesheet" href="static/styles/style.css" />  
 <link rel="stylesheet" type="text/css" href="static/styles/print_style.css" media="print" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
@@ -12,8 +12,8 @@
 <div id="top_div">
 	<canvas id="wtf" onclick="wtf()" width="80" height="80" ></canvas>
 	<canvas id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></canvas>
-	<canvas id="title_background" width="250" height="100">	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
-	<canvas id="download" width="80" height="80"></canvas>
+	<canvas id="title_background" width="250" height="100"></canvas>
+	<a id="download_out"><canvas id="download" width="80" height="80"></canvas></a>
 	<canvas onclick="window.print()" width="80" height="80" id="print_it"></canvas>
 </div>
 <div id="mid_div">
@@ -32,10 +32,19 @@ function draw( d , o ) {
 	ctx.save()
 	ctx.globalAlpha = parseInt(o)/100
 	
+	var ss = document.styleSheets;
+    for (var i = 0, max = ss.length; i < max; i++) {
+        if (ss[i].href == "static/styles/print_style.css") {
+        	console.log("wtf") ;
+            c.width = 2480;
+        	c.height = 3508;
+        }
+    }
+
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
 		ctx.beginPath();
-		ctx.moveTo( Math.floor((Math.random() * 600)) ,Math.floor((Math.random() * 400)));
-		ctx.lineTo(Math.floor((Math.random() * 600)),Math.floor((Math.random() * 400)));
+		ctx.moveTo( Math.floor((Math.random() * c.width)) ,Math.floor((Math.random() * c.height)));
+		ctx.lineTo(Math.floor((Math.random() * c.width)),Math.floor((Math.random() * c.height)));
 		ctx.lineWidth = 0.5;
 		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
@@ -43,8 +52,8 @@ function draw( d , o ) {
 
 	for (var i = 0 ; i < parseInt(d) ; i++ ) {
 		ctx.beginPath();
-		ctx.moveTo( Math.floor((Math.random() * 600)) ,Math.floor((Math.random() * 400)));
-		ctx.bezierCurveTo(Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)), Math.floor((Math.random() * 600)), Math.floor((Math.random() * 400)));
+		ctx.moveTo( Math.floor((Math.random() * c.width)) ,Math.floor((Math.random() * c.height)));
+		ctx.bezierCurveTo(Math.floor((Math.random() * c.width)), Math.floor((Math.random() * c.height)), Math.floor((Math.random() * c.width)), Math.floor((Math.random() * c.height)), Math.floor((Math.random() * c.width)), Math.floor((Math.random() * c.height)));
 		ctx.lineWidth = 0.5;
 		ctx.globalAlpha = parseInt(o)/100
 		ctx.stroke();
@@ -58,7 +67,7 @@ function downloadCanvas(link, canvasId, filename) {
     link.download = filename;
 }
 
-document.getElementById('download').addEventListener('click', function() {
+document.getElementById('download_out').addEventListener('click', function() {
     downloadCanvas(this, 'pareidolia', 'pareidolia.png');
 }, false);
 
