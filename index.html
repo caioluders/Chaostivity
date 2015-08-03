@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <body>
-
-<a id="download">Download</a>
-<button onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)">Reload</button>
-<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
-<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
-<canvas id="pareidolia" width="400" height="200" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.</canvas>
+<h1>Chaostivity</h1>
+<div id="top_div">
+	<a id="download">Download</a>
+	<button onclick="document.getElementById('pareidolia').print()">Print it!</button>
+	<button onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)">Reload</button>
+</div>
+<div id="mid_div">
+	<canvas id="pareidolia" width="400" height="200" style="border:1px solid #d3d3d3;">	Your browser does not support the HTML5 canvas tag.</canvas>
+</div>
+<div id="foot_div">
+	<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
+	<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
+	<a onclick="select_print('a3')">A3</a>
+	<a onclick="select_print('a4')">A4</a>
+</div>
 
 <script>
 function draw( d , o ) {
@@ -47,6 +57,9 @@ document.getElementById('download').addEventListener('click', function() {
     downloadCanvas(this, 'pareidolia', 'pareidolia.png');
 }, false);
 
+function select_print(t) {
+	console.log(t) ;
+}
 draw(50) ;
 
 </script>
