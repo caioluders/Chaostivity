@@ -1,4 +1,4 @@
-@font-face { font-family: 'ChunkFive-Roman'; src: url('static/fonts/ChunkFive-Roman.eot?#iefix') format('embedded-opentype'), url('static/fonts/ChunkFive-Roman.otf') format('opentype'), url('static/fonts/ChunkFive-Roman.woff') format('woff'), url('static/fonts/ChunkFive-Roman.ttf') format('truetype'), url('static/fonts/ChunkFive-Roman.svg#ChunkFive-Roman') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'ChunkFive-Roman'; src: url('../fonts/ChunkFive-Roman.eot?#iefix') format('embedded-opentype'), url('../fonts/ChunkFive-Roman.otf') format('opentype'), url('../fonts/ChunkFive-Roman.woff') format('woff'), url('../fonts/ChunkFive-Roman.ttf') format('truetype'), url('../fonts/ChunkFive-Roman.svg#ChunkFive-Roman') format('svg'); font-weight: normal; font-style: normal; }
 
 html, body {
                 height: 100%;
