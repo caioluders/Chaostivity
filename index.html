@@ -12,6 +12,7 @@ for (var i = 0 ; i < 50 ; i++ ) {
 	var ctx = c.getContext("2d");
 	ctx.moveTo( Math.floor((Math.random() * 1239)) ,Math.floor((Math.random() * 1754)));
 	ctx.lineTo(Math.floor((Math.random() * 1239)),Math.floor((Math.random() * 1754)));
+	ctx.scale(0.3,0.3);
 	ctx.stroke();
 }
 
@@ -20,6 +21,7 @@ for (var i = 0 ; i < 50 ; i++ ) {
 	ctx.beginPath();
 	ctx.moveTo( Math.floor((Math.random() * 1239)) ,Math.floor((Math.random() * 1754)));
       ctx.bezierCurveTo(Math.floor((Math.random() * 1239)), Math.floor((Math.random() * 1754)), Math.floor((Math.random() * 1239)), Math.floor((Math.random() * 1754)), Math.floor((Math.random() * 1239)), Math.floor((Math.random() * 1754)));
+      ctx.scale(0.3,0.3);
 	ctx.stroke();
 }
 </script>
