@@ -12,7 +12,7 @@
 <div id="top_div">
 	<canvas id="wtf" onclick="wtf()" width="80" height="80" ></canvas>
 	<canvas id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></canvas>
-	<canvas id="title_background" width="250" height="100"></canvas>
+	<div id="title_background">Chaostivity</div>
 	<a id="download_out"><canvas id="download" width="80" height="80"></canvas></a>
 	<canvas onclick="window.print()" width="80" height="80" id="print_it"></canvas>
 </div>
@@ -109,8 +109,8 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, ra
     }
 } 
 
-var canvas = document.getElementById("title_background");
-var c = canvas.getContext("2d");
+// var canvas = document.getElementById("title_background");
+// var c = canvas.getContext("2d");
 
 // var grd=c.createLinearGradient(0,0,250,0);
 // grd.addColorStop(0,"#155799");
@@ -126,9 +126,9 @@ var c = canvas.getContext("2d");
 // 	c.font = "35px ChunkFive-Roman";
 // 	c.fillText("Chaostivity", -10, -10);
 // }
-c.fillStyle = "#FFF6E4";
-c.font = "35px ChunkFive-Roman";
-c.fillText("Chaostivity", 30, 70);
+// c.fillStyle = "#FFF6E4";
+// c.font = "35px ChunkFive-Roman";
+// c.fillText("Chaostivity", 30, 70);
 
 
 var canvas1 = document.getElementById('wtf');
@@ -180,10 +180,11 @@ function hover_wtf() {
 	var centerX = canvas1.width / 2;
 	var centerY = canvas1.height / 2;
 	var radius = 70;
+	context.globalAlpha = 0.5 ;
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#718147';
+	context.fillStyle = 'gray';
 	context.fill();
 	context.fillStyle = undefined;
 	var img = document.getElementById("help_btn");
@@ -197,10 +198,11 @@ function draw_wtf() {
 	var centerX = canvas1.width / 2;
 	var centerY = canvas1.height / 2;
 	var radius = 70;
+	context.globalAlpha = 0.5 ;
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#8DA552';
+	context.fillStyle = 'gray';
 	context.fill();
 	var img = document.getElementById("help_btn");
 
@@ -223,8 +225,9 @@ function draw_reload() {
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#8DA552';
+	context.fillStyle = 'gray';
 	context.fill();
+	context.globalAlpha = 0.5 ;
 	var img = document.getElementById("reload_btn");
 
 	for ( var i = 1 ; i < 100 ; i+= 1 ) {
@@ -244,10 +247,11 @@ function hover_reload() {
 	var centerX = canvas2.width / 2;
 	var centerY = canvas2.height / 2;
 	var radius = 70;
+	context.globalAlpha = 0.5 ;
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#718147';
+	context.fillStyle = 'gray';
 	context.fill();
 	var img = document.getElementById("reload_btn");
 
@@ -263,9 +267,10 @@ function draw_save() {
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#8DA552';
+	context.fillStyle = 'gray';
 	context.fill();
 
+	context.globalAlpha = 0.5 ;
 	var imageObj3 = new Image();
 	var img = document.getElementById("save_btn");
 
@@ -288,9 +293,10 @@ function hover_save() {
 	var centerY = canvas3.height / 2;
 	var radius = 70;
 
+	context.globalAlpha = 0.5 ;
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#718147';
+	context.fillStyle = 'gray';
 	context.fill();
 
 	var imageObj3 = new Image();
@@ -308,8 +314,9 @@ function draw_print() {
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#8DA552';
+	context.fillStyle = 'gray';
 	context.fill();
+	context.globalAlpha = 0.5 ;
 	var img = document.getElementById("print_btn");
 
 	for ( var i = 1 ; i < 100 ; i+= 1 ) {
@@ -332,8 +339,9 @@ function hover_print() {
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = '#718147';
+	context.fillStyle = 'gray';
 	context.fill();
+	context.globalAlpha = 0.5 ;
 	var img = document.getElementById("print_btn");
 
 	context.drawImage(img, (80-45)/2, (80-44)/2);
