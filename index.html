@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html>
-<img src="static/images/PrintButton.png" id="print_btn">
-<img src="static/images/SaveButton.png" id="save_btn">
-<img src="static/images/HelpButton.png" id="help_btn">
-<img src="static/images/ReloadButton.png" id="reload_btn">
 <link type="text/css" rel="stylesheet" href="static/styles/style.css" />  
 <link rel="stylesheet" type="text/css" href="static/styles/print_style.css" media="print" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <body>
 <div id="top_div">
-	<canvas id="wtf" onclick="wtf()" width="80" height="80" ></canvas>
-	<canvas id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></canvas>
-	<div id="title_background">Chaostivity</div>
-	<a id="download_out"><canvas id="download" width="80" height="80"></canvas></a>
-	<canvas onclick="window.print()" width="80" height="80" id="print_it"></canvas>
+	<img src="static/images/WTF.png" id="wtf" onclick="wtf()" width="80" height="80" ></img>
+	<img src="static/images/Reloada.png" id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></img>
+	<canvas width="230" height="80" id="title_background"></canvas>
+	<a id="download_out"><img src="static/images/Sarvar.png" id="download" width="80" height="80"></img></a>
+	<img src="static/images/Emprimiar.png" onclick="window.print()" width="80" height="80" id="print_it"></img>
 </div>
 <div id="mid_div">
 	<canvas id="pareidolia" width="600" height="400" >	Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
 </div>
 <div id="foot_div">
-	Densidade<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
-	Opacidade<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
+	<p>Densidade</p><input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
+	<p>Opacidade</p><input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
 </div>
 
 <script>
@@ -79,280 +75,33 @@ function select_print(t) {
 	console.log(t) ;
 }
 
-CanvasRenderingContext2D.prototype.roundRect = function (x, y, width, height, radius, fill, stroke) {
-    var cornerRadius = { upperLeft: 0, upperRight: 0, lowerLeft: 0, lowerRight: 0 };
-    if (typeof stroke == "undefined") {
-        stroke = true;
-    }
-    if (typeof radius === "object") {
-        for (var side in radius) {
-            cornerRadius[side] = radius[side];
-        }
-    }
+var canvas = document.getElementById("title_background");
+var c = canvas.getContext("2d");
 
-    this.beginPath();
-    this.moveTo(x + cornerRadius.upperLeft, y);
-    this.lineTo(x + width - cornerRadius.upperRight, y);
-    this.quadraticCurveTo(x + width, y, x + width, y + cornerRadius.upperRight);
-    this.lineTo(x + width, y + height - cornerRadius.lowerRight);
-    this.quadraticCurveTo(x + width, y + height, x + width - cornerRadius.lowerRight, y + height);
-    this.lineTo(x + cornerRadius.lowerLeft, y + height);
-    this.quadraticCurveTo(x, y + height, x, y + height - cornerRadius.lowerLeft);
-    this.lineTo(x, y + cornerRadius.upperLeft);
-    this.quadraticCurveTo(x, y, x + cornerRadius.upperLeft, y);
-    this.closePath();
-    if (stroke) {
-        this.stroke();
-    }
-    if (fill) {
-        this.fill();
-    }
-} 
+c.fillStyle = 'rgb(114,152,63)';
+// c.roundRect(0, 0, 230, 80, {lowerLeft:10,lowerRight:10 , upperLeft:10 , upperRight:10}, true, false);
+c.beginPath() ;
+c.moveTo(10,0) ;
+c.lineTo(220,0) ;
+c.quadraticCurveTo(230 , 0 , 230 , 10 );
+c.lineTo(230,70) ;
+c.quadraticCurveTo(230 , 80 , 220 , 80 );
+c.lineTo(10,70) ;
+c.quadraticCurveTo(0 , 70 , 0 , 60 );
+c.lineTo(0,10) ;
+c.quadraticCurveTo(0 , 0 , 10 , 0 );
+c.closePath() ;
+c.fill() ;
 
-// var canvas = document.getElementById("title_background");
-// var c = canvas.getContext("2d");
-
-// var grd=c.createLinearGradient(0,0,250,0);
-// grd.addColorStop(0,"#155799");
-// grd.addColorStop(1,"#159957");
-// c.fillStyle = grd;
-// c.roundRect(0, 0, 250, 100, {lowerLeft:10,lowerRight:10}, true, false);
-
-// for ( var i = 1 ; i < 100 ; i+= 1 ) {
-// 	c.shadowOffsetX = 40+i;
-// 	c.shadowOffsetY = 80+i;
-// 	c.shadowColor = "#718147" ;
-// 	c.fillStyle = undefined ;
-// 	c.font = "35px ChunkFive-Roman";
-// 	c.fillText("Chaostivity", -10, -10);
-// }
-// c.fillStyle = "#FFF6E4";
-// c.font = "35px ChunkFive-Roman";
-// c.fillText("Chaostivity", 30, 70);
-
-
-var canvas1 = document.getElementById('wtf');
-
-canvas1.addEventListener('mouseover', function() {
-        hover_wtf() ;
-});
-
-canvas1.addEventListener('mouseout', function() {
-        draw_wtf() ;
-});
-
-var canvas2 = document.getElementById('reload');
-
-
-canvas2.addEventListener('mouseover', function() {
-        hover_reload() ;
-});
-
-canvas2.addEventListener('mouseout', function() {
-        draw_reload() ;
-});
-
-
-var canvas3 = document.getElementById('download');
-
-canvas3.addEventListener('mouseover', function() {
-        hover_save() ;
-});
-
-canvas3.addEventListener('mouseout', function() {
-        draw_save() ;
-});
-
-var canvas4 = document.getElementById('print_it');
-
-canvas4.addEventListener('mouseover', function() {
-        hover_print() ;
-});
-
-canvas4.addEventListener('mouseout', function() {
-        draw_print() ;
-});
-
-function hover_wtf() {
-	var canvas1 = document.getElementById('wtf');
-	var context = canvas1.getContext('2d');
-	context.clearRect(0, 0, canvas1.width, canvas1.height);
-	var centerX = canvas1.width / 2;
-	var centerY = canvas1.height / 2;
-	var radius = 70;
-	context.globalAlpha = 0.5 ;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	context.fillStyle = undefined;
-	var img = document.getElementById("help_btn");
-
-	context.drawImage(img, ((80-45)/2), ((80-44)/2));
-}
-
-function draw_wtf() {
-	var canvas1 = document.getElementById('wtf');
-	var context = canvas1.getContext('2d');
-	var centerX = canvas1.width / 2;
-	var centerY = canvas1.height / 2;
-	var radius = 70;
-	context.globalAlpha = 0.5 ;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	var img = document.getElementById("help_btn");
-
-	for ( var i = 1 ; i < 100 ; i+= 1 ) {
-		context.shadowOffsetX = ((80-45)/2)+31+i;
-		context.shadowOffsetY = ((80-44)/2)+31+i;
-		context.shadowColor = "#718147" ;
-		context.fillStyle = undefined ;
-		context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
-	}
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function draw_reload() {
-	var canvas2 = document.getElementById('reload');
-	var context = canvas2.getContext('2d');
-	var centerX = canvas2.width / 2;
-	var centerY = canvas2.height / 2;
-	var radius = 70;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	context.globalAlpha = 0.5 ;
-	var img = document.getElementById("reload_btn");
-
-	for ( var i = 1 ; i < 100 ; i+= 1 ) {
-		context.shadowOffsetX = ((80-45)/2)+31+i;
-		context.shadowOffsetY = ((80-44)/2)+31+i;
-		context.shadowColor = "#718147" ;
-		context.fillStyle = undefined ;
-		context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
-	}
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function hover_reload() {
-	var canvas2 = document.getElementById('reload');
-	var context = canvas2.getContext('2d');
-	var centerX = canvas2.width / 2;
-	var centerY = canvas2.height / 2;
-	var radius = 70;
-	context.globalAlpha = 0.5 ;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	var img = document.getElementById("reload_btn");
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function draw_save() {
-	var canvas3 = document.getElementById('download');
-	var context = canvas3.getContext('2d');
-	var centerX = canvas3.width / 2;
-	var centerY = canvas3.height / 2;
-	var radius = 70;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-
-	context.globalAlpha = 0.5 ;
-	var imageObj3 = new Image();
-	var img = document.getElementById("save_btn");
-
-
-	for ( var i = 1 ; i < 100 ; i+= 1 ) {
-		context.shadowOffsetX = ((80-45)/2)+31+i;
-		context.shadowOffsetY = ((80-44)/2)+31+i;
-		context.shadowColor = "#718147" ;
-		context.fillStyle = undefined ;
-		context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
-	}
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function hover_save() {
-	var canvas3 = document.getElementById('download');
-	var context = canvas3.getContext('2d');
-	var centerX = canvas3.width / 2;
-	var centerY = canvas3.height / 2;
-	var radius = 70;
-
-	context.globalAlpha = 0.5 ;
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-
-	var imageObj3 = new Image();
-	var img = document.getElementById("save_btn");
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function draw_print() {
-	var canvas4 = document.getElementById('print_it');
-	var context = canvas4.getContext('2d');
-	var centerX = canvas4.width / 2;
-	var centerY = canvas4.height / 2;
-	var radius = 70;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	context.globalAlpha = 0.5 ;
-	var img = document.getElementById("print_btn");
-
-	for ( var i = 1 ; i < 100 ; i+= 1 ) {
-		context.shadowOffsetX = ((80-45)/2)+30+i;
-		context.shadowOffsetY = ((80-44)/2)+30.5+i;
-		context.shadowColor = "#718147" ;
-		context.fillStyle = undefined ;
-		context.drawImage(img, ((80-45)/2)-50, ((80-44)/2)-50);
-	}
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
-
-function hover_print() {
-	var canvas4 = document.getElementById('print_it');
-	var context = canvas4.getContext('2d');
-	var centerX = canvas4.width / 2;
-	var centerY = canvas4.height / 2;
-	var radius = 70;
-
-	context.beginPath();
-	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'gray';
-	context.fill();
-	context.globalAlpha = 0.5 ;
-	var img = document.getElementById("print_btn");
-
-	context.drawImage(img, (80-45)/2, (80-44)/2);
-}
+c.fillStyle = "white";
+c.shadowOffsetX = -3 ;
+c.shadowOffsetY = 3 ;
+c.shadowBlur = 0 ;
+c.shadowColor = 'rgb(87,115,49)' ;
+c.font = "35px Conv_Anothershabby_trial";
+c.fillText("Chaostivity", 25, 50);
 
 draw(50) ;
-
-draw_reload();
-draw_wtf() ;
-draw_save() ;
-draw_print() ;
 
 </script>
 
