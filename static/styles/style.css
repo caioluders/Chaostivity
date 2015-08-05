@@ -11,15 +11,6 @@ html, body {
     margin: 0;
 }
 
-p {
-    display: inline-block;
-    font-family: 'Helvetica';
-    font-size: 15px;
-    margin: auto;
-    vertical-align: text-bottom;
-}
-
-
 input[type=range]{
   -webkit-appearance: none;
   background: none;
@@ -144,6 +135,11 @@ img {
 }
 #foot_div {
     text-align: center;
+    display: inline-block;
+    font-family: 'Helvetica';
+    font-size: 15px;
+    margin: auto;
+    vertical-align: text-bottom;
     width: 100%;
 }
 #title_div{
@@ -157,16 +153,19 @@ img {
     font-size: 35px;
     color: #FFF6E4 ;
     margin: auto;
-    padding: 30px;
+    margin-bottom: 1em;
     vertical-align: text-bottom;
 }
 
 #pareidolia {
     display: block;
-    margin: auto 0 ;
+    margin: auto;
+    padding: 30px;
+    vertical-align: text-bottom;
     padding: 10px;
     border-width : 2px;
-    border-color: #000000 ;
+    background-color: #ffffff ;
+    border-color: #000000 
 }
 
 #wtf{
@@ -180,6 +179,7 @@ img {
         text-align:center;
         text-decoration:none;
         margin: 15px;
+        visibility: hidden;
 }
 
 #wtf:hover{
@@ -200,6 +200,7 @@ img {
         text-decoration:none;
         background:#8DA552;
         margin: 15px;
+        visibility: hidden;
 }
 
 #download:hover{
@@ -217,6 +218,7 @@ img {
         font-size:20px;
         color:#fff;
         text-align:center;
+        visibility: hidden;
         margin: 15px;
 }
 
@@ -235,6 +237,7 @@ img {
         font-size:20px;
         color:#fff;
         text-align:center;
+        visibility: hidden;
         text-decoration:none;
         margin: 15px;
 }

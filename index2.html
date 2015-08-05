@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>Chaostivity by geolado</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static/styles/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link type="text/css" rel="stylesheet" href="static/styles/style.css" />  
     <link rel="stylesheet" type="text/css" href="static/styles/print_style.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="static/styles/animate.css" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static/styles/stylesheet.css" media="screen">
   </head>
   <body>
     <section class="page-header">
+    <img src="static/images/WTF.png" onMouseOver="this.src='static/images/H_WTF.png'" onMouseOut="this.src='static/images/WTF.png'" id="wtf" onclick="wtf()" width="80" height="80" ></img>
+  <img src="static/images/Reloada.png" onMouseOver="this.src='static/images/H_Reloada.png'" onMouseOut="this.src='static/images/Reloada.png'" id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></img>
       <canvas width="230" height="80" id="title_background"></canvas>
+      <a id="download_out"><img src="static/images/Sarvar.png" onMouseOver="this.src='static/images/H_Sarvar.png'" onMouseOut="this.src='static/images/Sarvar.png'" id="download" width="80" height="80"></img></a>
+  <img src="static/images/Emprimiar.png" onMouseOver="this.src='static/images/H_Imprimir.png'" onMouseOut="this.src='static/images/Emprimiar.png'" onclick="window.print()" width="80" height="80" id="print_it"></img>
       <canvas id="pareidolia" width="600" height="400" >  Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
       <h2 class="project-tagline"></h2>
-      <a href="https://github.com/geolado/testepages" class="btn">Try it !</a>
-      <a href="https://github.com/geolado/testepages/zipball/master" class="btn">Download .zip</a>
+      <a class="btn" onclick="show_things()">Try it !</a>
       <a href="https://github.com/geolado/testepages/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
