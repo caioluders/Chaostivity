@@ -53,7 +53,9 @@ function show_things() {
 	$('#download').addClass('animated bounceIn');
 	$('#print_it').css({"visibility": "visible"})
 	$('#print_it').addClass('animated bounceIn');
-	console.log("lol") ;
+	$('#foot_div').show();
+	$('#foot_div').addClass('animated bounceIn');
+	$('#try_btn').hide();
 }
 
 var canvas = document.getElementById("title_background");
@@ -81,5 +83,5 @@ c.shadowBlur = 0 ;
 c.shadowColor = 'rgb(87,115,49)' ;
 c.font = "35px Conv_Anothershabby_trial";
 c.fillText("Chaostivity", 25, 50);
-
+$('#foot_div').hide();
 draw(50) ;

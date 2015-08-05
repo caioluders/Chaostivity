@@ -20,9 +20,13 @@
       <canvas width="230" height="80" id="title_background"></canvas>
       <a id="download_out"><img src="static/images/Sarvar.png" onMouseOver="this.src='static/images/H_Sarvar.png'" onMouseOut="this.src='static/images/Sarvar.png'" id="download" width="80" height="80"></img></a>
   <img src="static/images/Emprimiar.png" onMouseOver="this.src='static/images/H_Imprimir.png'" onMouseOut="this.src='static/images/Emprimiar.png'" onclick="window.print()" width="80" height="80" id="print_it"></img>
+  <div id="foot_div">
+  Densidade<input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
+  Opacidade<input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
+</div>
       <canvas id="pareidolia" width="600" height="400" >  Your browser does not support the HTML5 canvas tag , sorry :'( </canvas>
       <h2 class="project-tagline"></h2>
-      <a class="btn" onclick="show_things()">Try it !</a>
+      <a class="btn" onclick="show_things()" id="try_btn">Try it !</a>
       <a href="https://github.com/geolado/testepages/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
