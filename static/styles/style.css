@@ -10,6 +10,7 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 p {
     display: inline-block;
     font-family: 'Helvetica';
@@ -161,6 +162,8 @@ img {
 }
 
 #pareidolia {
+    display: block;
+    margin: auto 0 ;
     padding: 10px;
     border-width : 2px;
     border-color: #000000 ;
