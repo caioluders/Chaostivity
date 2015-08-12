@@ -35,14 +35,10 @@ document.getElementById('download_out').addEventListener('click', function() {
     downloadCanvas(this, 'pareidolia', 'pareidolia.png');
 }, false);
 
-function wtf() {
-	alert("I don't know WTF IS THIS !");
-}
 
 function select_print(t) {
 	console.log(t) ;
 }
-
 
 function show_things() {
 	$('#wtf').css({"visibility": "visible"});
@@ -62,7 +58,6 @@ var canvas = document.getElementById("title_background");
 var c = canvas.getContext("2d");
 
 c.fillStyle = '#C9915F';
-// c.roundRect(0, 0, 230, 80, {lowerLeft:10,lowerRight:10 , upperLeft:10 , upperRight:10}, true, false);
 c.beginPath() ;
 c.moveTo(10,0) ;
 c.lineTo(220,0) ;

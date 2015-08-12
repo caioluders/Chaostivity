@@ -3,10 +3,11 @@
 <link type="text/css" rel="stylesheet" href="static/styles/style.css" />  
 <link rel="stylesheet" type="text/css" href="static/styles/print_style.css" media="print" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="static/js/core.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <body>
 <div id="top_div">
-	<img src="static/images/WTF.png" onMouseOver="this.src='static/images/H_WTF.png'" onMouseOut="this.src='static/images/WTF.png'" id="wtf" onclick="wtf()" width="80" height="80" ></img>
+	<a href="http://b00t4nd0.com/"><img src="static/images/WTF.png" onMouseOver="this.src='static/images/H_WTF.png'" onMouseOut="this.src='static/images/WTF.png'" id="wtf" width="80" height="80" ></img></a>
 	<img src="static/images/Reloada.png" onMouseOver="this.src='static/images/H_Reloada.png'" onMouseOut="this.src='static/images/Reloada.png'" id="reload" width="80" height="80" onclick="draw(document.getElementById('density').value,document.getElementById('opacity').value)"></img>
 	<canvas width="230" height="80" id="title_background"></canvas>
 	<a id="download_out"><img src="static/images/Sarvar.png" onMouseOver="this.src='static/images/H_Sarvar.png'" onMouseOut="this.src='static/images/Sarvar.png'" id="download" width="80" height="80"></img></a>
@@ -19,7 +20,6 @@
 	<a>Densidade</a><input id="density" type="range" min="0" max="100" onchange="draw(this.value,document.getElementById('opacity').value)" />
 	<a>Opacidade</a><input id="opacity" type="range" min="0" max="100" onchange="draw(document.getElementById('density').value,this.value)" />
 </div>
-
 <script src="static/js/core.js" type="text/javascript"></script>
 <script type="text/javascript">
 	show_things();
