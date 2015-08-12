@@ -44,5 +44,5 @@ The picture above was made with this :
 
 
 ##For more :
-Read my blog's post http://b00t4nd0.com/2015/08/chaostivity/
+Read my blog's post http://b00t4nd0.com/2015/08/chaostivity/ ( pt-BR )
 
