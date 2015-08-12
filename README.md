@@ -9,6 +9,10 @@
                                       ._| 
 </pre>
 
+JS Version : http://geolado.github.io/Chaostivity/
+
+Thanks to Mateus Bolsoni and TheZakMan for the awesome design!
+
 ##What it is ?
 
 A script to make images with random lines and curves.
@@ -39,5 +43,6 @@ The picture above was made with this :
 |--density DENSITY, -d DENSITY | The density|number of lines
 
 
-
+##For more :
+Read my blog's post http://b00t4nd0.com/2015/08/chaostivity/
 
