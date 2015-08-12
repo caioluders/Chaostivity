@@ -9,6 +9,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    background-color: #2D393F ;
 }
 
 input[type=range]{
@@ -139,15 +140,18 @@ img {
     font-family: 'Helvetica';
     font-size: 15px;
     margin: auto;
+    color: white ;
+    padding-top: 5px ;
     vertical-align: text-bottom;
     width: 100%;
 }
 #title_div{
-    display:inline-block;
+    padding: 5px ;
 }
 
 #title_background {
     display: inline-block;
+    padding: 5px ;
     letter-spacing: 2.5px ;
     font-family: "ChunkFive-Roman";
     font-size: 35px;

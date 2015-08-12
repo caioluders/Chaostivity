@@ -31,9 +31,9 @@ function downloadCanvas(link, canvasId, filename) {
     link.download = filename;
 }
 
-// document.getElementById('download_out').addEventListener('click', function() {
-//     downloadCanvas(this, 'pareidolia', 'pareidolia.png');
-// }, false);
+document.getElementById('download_out').addEventListener('click', function() {
+    downloadCanvas(this, 'pareidolia', 'pareidolia.png');
+}, false);
 
 function wtf() {
 	alert("I don't know WTF IS THIS !");
